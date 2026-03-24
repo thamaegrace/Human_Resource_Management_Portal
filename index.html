@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRMP | Home - Human Resources Management Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">HRMP</h1>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/culture.html">Culture</a></li>
+        <li><a href="pages/careers.html">Careers</a></li>
+        <li><a href="pages/benefits.html">Benefits</a></li>
+        <li><a href="pages/training.html">Training</a></li>
+      </ul>
+      <button class="hamburger">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to HRMP</h1>
+      <p>Your comprehensive Human Resources Management Portal</p>
+      <a href="pages/careers.html" class="btn-primary">View Open Positions</a>
+    </section>
+
+    <section class="features">
+      <h2>What We Offer</h2>
+      <div class="features-grid">
+        <div class="card"><h3>Culture</h3><p>Inclusive & innovative workplace</p></div>
+        <div class="card"><h3>Careers</h3><p>Build your future with us</p></div>
+        <div class="card"><h3>Benefits</h3><p>Comprehensive employee packages</p></div>
+        <div class="card"><h3>Training</h3><p>Continuous learning opportunities</p></div>
+      </div>
+    </section>
+
+    <section class="staff">
+      <h2>Meet Our Team</h2>
+      <div class="staff-grid">
+        <div class="staff-card"><img src="images/staff1.jpg" alt="Motebang Tatolo - HR Director" onerror="this.src='https://via.placeholder.com/300x300?text=Motebang+Tatolo'"><h3>Motebang Tatolo</h3><p>HR Director</p></div>
+        <div class="staff-card"><img src="images/staff2.jpg" alt="Pule Khomo - Talent Acquisition" onerror="this.src='https://via.placeholder.com/300x300?text=Pule+Khomo'"><h3>Pule Khomo</h3><p>Talent Acquisition</p></div>
+        <div class="staff-card"><img src="images/staff3.jpg" alt="Thato Khothatso - Training Manager" onerror="this.src='https://via.placeholder.com/300x300?text=Thato+Khothatso'"><h3>Thato Khothatso</h3><p>Training Manager</p></div>
+        <div class="staff-card"><img src="images/staff4.jpg" alt="Denial Denial - Benefits Specialist" onerror="this.src='https://via.placeholder.com/300x300?text=Denial+Denial'"><h3>Denial Denial</h3><p>Benefits Specialist</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>HRMP</h3>
+        <p>Empowering employees, enriching careers</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: hr@company.com</p>
+        <p>Phone: +266 6495 9699</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HRMP. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+  </script>
+</body>
+</html>
