@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now | HRMP Careers</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">HRMP</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/culture.html">Culture</a></li>
+        <li><a href="pages/careers.html">Careers</a></li>
+        <li><a href="pages/benefits.html">Benefits</a></li>
+        <li><a href="pages/training.html">Training</a></li>
+      </ul>
+      <button class="hamburger">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Job Application Form</h1>
+      <p>Complete the form below to apply for your desired position</p>
+    </section>
+
+    <section class="application-page">
+      <div class="application-container">
+        <div class="job-summary">
+          <h3>Position Details</h3>
+          <p><strong>Position Applied For:</strong> <span id="selectedJob">Senior Software Engineer</span></p>
+          <p><strong>Department:</strong> <span id="selectedDept">Engineering</span></p>
+          <p><strong>Type:</strong> Full-time</p>
+        </div>
+
+        <form class="application-form-page" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="Enter your email address">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+              <label>Current Location</label>
+              <input type="text" placeholder="City, Country">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Select Position *</label>
+              <select id="positionSelect" onchange="updateJobDetails()">
+                <option value="Senior Software Engineer|Engineering">Senior Software Engineer</option>
+                <option value="HR Business Partner|Human Resources">HR Business Partner</option>
+                <option value="Marketing Specialist|Marketing">Marketing Specialist</option>
+                <option value="Product Manager|Product">Product Manager</option>
+                <option value="Data Analyst|Analytics">Data Analyst</option>
+                <option value="UX/UI Designer|Design">UX/UI Designer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Years of Experience *</label>
+              <select>
+                <option>Select years of experience</option>
+                <option>0-1 years</option>
+                <option>1-3 years</option>
+                <option>3-5 years</option>
+                <option>5-7 years</option>
+                <option>7-10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Current/Previous Company</label>
+              <input type="text" placeholder="Company name">
+            </div>
+            <div class="form-group" id="additionalField">
+              <label>Additional Link (Portfolio/GitHub/Work Samples)</label>
+              <input type="text" placeholder="Link to your portfolio, GitHub, or work samples">
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Application</button>
+          <p class="form-note">Your registration will be submitted to our HR team. We'll contact you within 3-5 business days.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>HRMP</h3>
+        <p>Empowering employees, enriching careers</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: thamaegrace@gmail.com</p>
+        <p>Phone: +266 6495 9699</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HRMP. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Get job from URL parameter
+    function getJobFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const job = urlParams.get('job');
+      if (job) {
+        return decodeURIComponent(job);
+      }
+      return null;
+    }
+
+    // Update form based on selected job
+    function updateJobDetails() {
+      const select = document.getElementById('positionSelect');
+      const selectedValue = select.value;
+      const [jobTitle, department] = selectedValue.split('|');
+      
+      document.getElementById('selectedJob').textContent = jobTitle;
+      document.getElementById('selectedDept').textContent = department;
+      
+      // Update additional field label based on job
+      const additionalField = document.getElementById('additionalField');
+      if (jobTitle === 'Senior Software Engineer') {
+        additionalField.innerHTML = '<label>GitHub/Portfolio Link</label><input type="text" placeholder="Link to your GitHub or portfolio">';
+      } else if (jobTitle === 'Marketing Specialist') {
+        additionalField.innerHTML = '<label>Portfolio/Work Samples Link</label><input type="text" placeholder="Link to your portfolio or work samples">';
+      } else if (jobTitle === 'Product Manager') {
+        additionalField.innerHTML = '<label>Portfolio/Product Examples Link</label><input type="text" placeholder="Link to products you\'ve managed">';
+      } else if (jobTitle === 'Data Analyst') {
+        additionalField.innerHTML = '<label>GitHub/Portfolio Link</label><input type="text" placeholder="Link to your data projects">';
+      } else if (jobTitle === 'UX/UI Designer') {
+        additionalField.innerHTML = '<label>Portfolio Link *</label><input type="text" placeholder="Link to your design portfolio">';
+      } else if (jobTitle === 'HR Business Partner') {
+        additionalField.innerHTML = '<label>HR Certification (if any)</label><input type="text" placeholder="SHRM, PHR, CIPD, etc.">';
+      }
+    }
+
+    // Set initial job from URL
+    window.onload = function() {
+      const jobFromURL = getJobFromURL();
+      if (jobFromURL) {
+        const select = document.getElementById('positionSelect');
+        for(let i = 0; i < select.options.length; i++) {
+          if(select.options[i].text === jobFromURL) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      updateJobDetails();
+    };
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+  </script>
+</body>
+</html>
